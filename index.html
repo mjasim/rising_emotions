@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Sea Level Rise Boston</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+</script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+<link rel="stylesheet" href="index.css">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@mjasimcs">
+<meta name="twitter:title" content="RisingEmotions">
+<meta name="twitter:image" content="https://imgur.com/BPTjemf.png">
+
+<body>
+
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#2196F3; border-color:#2196F3">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                <li><button class="btn btn-primary navbar-btn w3-hover-white" id="about_button" type="button"
+                        data-toggle="modal" data-placement="bottom" title="About" data-target="#aboutModal"
+                        style="background-color:#2196F3; border-color: #2196F3">About</button></li>
+                </li>
+            </ul>
+        </div>
+    </nav> -->
+
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-card w3-left-align w3-large" style="background-color: #3F77BC">
+            <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large"
+                href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i
+                    class="fa fa-bars"></i></a>
+            <a href="index.html" class="w3-bar-item w3-button w3-hover-white w3-padding-large">Home</a>
+            <a href="#aboutModal" data-toggle="modal"
+                class="w3-bar-item w3-hover-white w3-button w3-padding-large">About</a>
+        </div>
+    </div>
+
+    <!-- Navbar on small screens -->
+    <!-- <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+            <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
+        </div>
+    </div> -->
+
+    <div class="w3-display-container w3-padding-48 w3-animate-opacity">
+        <img src="images/Rising_Logo.png" alt="boat" class="responsive"
+            style="width:100%;min-height:200px;max-height:300px;">
+        <!-- <div class="w3-container w3-display-bottomleft w3-margin-top">
+        </div> -->
+    </div>
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="aboutModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">About</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    This art installation is funded by a Barr Foundation grant from the <a
+                        href="https://www.barrfoundation.org/" style="color:#2196F3">Barr Foundation</a> to the <a
+                        href="https://eastbostongreenway.com/about/" style="color:#2196F3">Friends
+                        of the East Boston Greenway</a> and developed by UMass Amherst professors:
+                    Carolina Aragón & Narges Mahyar, and their students:<br>
+                    Mahmood Jasim<br>
+                    Amanda Welch<br>
+                    Nigel Cummins<br>
+                    Claudia LaFontaine<br>
+                    Joyia Smikle<br>
+                    Ted Duffy<br>
+                    Brooklyn Feng<br>
+                    Lyla Fitch<br>
+                    Zoe Kearney<br>
+                    Costanza Fusco<br>
+                    Christopher Liu<br>
+                    Philip Chen<br></p>
+
+                    <p>Special thanks to:<br>
+                        Boston Society of Landscape Architects<br>
+                        City of Boston Planning & Development Agency<br>
+                        East Boston Public Library Branch<br>
+                        Excel Academy, HarborKeepers, Green Roots<br>
+                        Boston Society of Landscape Architects<br>
+                        UMass Boston Sustainable Solutions Lab<br>
+                        UMass Amherst Landscape Architecture & Regional Planning<br>
+                        UMass College of Information and Computer Science</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" style="background-color:#343A40"
+                        data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- First Grid -->
+    <div class="w3-row-padding w3-container">
+        <div class="w3-content">
+            <div class="w3-content">
+                <h1 class="w3-text-blue">RisingEMOTIONS: East Boston</h1>
+                <h3 class="w3-text-blue">A community art installation visualizing the public’s feelings about sea level
+                    rise</h3>
+                <p style="text-align: justify">Did you know that Boston could experience damaging flood levels because
+                    of
+                    climate change?</p>
+                <p style="text-align: justify">Did you know that East Boston is particularly vulnerable to the impact of
+                    sea level rise?</p>
+                <p style="text-align: justify">How does this make you feel?</p>
+                <p style="text-align: justify">RisingEMOTIONS is a collaborative art project with East Boston
+                    community members to visually display projected flood levels and people’s emotions about climate
+                    change.
+                </p>
+                <p>
+                    We are asking you to contribute to this artwork and let us know how local climate change related
+                    flooding makes you feel. Share your thoughts and see the artwork come alive at the East Boston
+                    Library starting late fall 2019.
+                </p>
+                <!-- <p class="w3-text-grey" style="text-align: justify"><a
+                        href="https://www.sciencenews.org/article/boston-adapting-rising-sea-level-coastal-flooding">Click
+                        here to learn more about the sea level rise in Boston.</a>
+                </p> -->
+            </div>
+
+            <!-- <div class="w3-third w3-center">
+                <i class="w3-text-blue" style="font-size: 160px">32</i>
+                <p class="w3-center w3-large">People shared their thoughts<p>
+            </div> -->
+        </div>
+    </div>
+
+    <!-- Second Grid -->
+    <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+        <div class="w3-content">
+            <h1 class="w3-text-blue">Tell us your feelings about climate change in your neighborhood</h1>
+            <div class="row">
+                <textarea id="subject" name="subject" maxlength="280" placeholder="Write your thoughts..."
+                    style="height:150px; margin-left:16px; margin-right:16px"></textarea>
+                <span id='remainingC' style="margin-left:16px; margin-right:16px">Remaining characters: 280</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Third Grid -->
+    <div class="w3-row-padding w3-padding-64 w3-container">
+        <div class="w3-content">
+            <h1 class="w3-text-blue">You mostly feel</h1>
+            <div class="row">
+                <div class="col-12">
+                    <select id="emotion" name="emotion">
+                        <option value="">...</option>
+                        <option value="optimistic">Optimistic</option>
+                        <option value="concerned">Concerned</option>
+                        <option value="sad">Sad</option>
+                        <option value="angry">Angry</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <input type="text" id="other_emo" name="other_emo" placeholder="..."
+                        style="visibility: hidden; margin-top:16px">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Fourth Grid -->
+    <div class="w3-row-padding w3-light-gray w3-padding-64 w3-container">
+        <div class="w3-content">
+            <h1 class="w3-text-blue">Where in the neighborhood do you live?</h1>
+            <div class="row">
+                <div class="col-12">
+                    <select id="area" name="area">
+                        <option value="">...</option>
+                        <option value="central_square">Central Square</option>
+                        <option value="day_square">Day Square</option>
+                        <option value="eagle_hill">Eagle Hill</option>
+                        <option value="harborview">Harborview</option>
+                        <option value="jeffreys_point">Jeffrey's Point</option>
+                        <option value="mavrick_square">Mavrick Square</option>
+                        <option value="orient_heights">Orient Heights</option>
+                        <option value="outsider">Other</option>
+                        <option value="no_location">I don't want to say</option>
+                    </select>
+                    <input type="text" id="other_area" name="other_area" placeholder="..."
+                        style="visibility: hidden; margin-top:16px">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="w3-container w3-blue w3-center w3-padding-16">
+        <h1 class="w3-margin w3-blue w3-xxlarge">Get Involved</h1>
+    </div> -->
+
+    <div class="w3-row-padding w3-padding-64 w3-container">
+        <div class="w3-content">
+            <h1 class="w3-text-blue">How can you help?</h1>
+            <div class="accordion" id="accordionExample">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                <h5 class="w3-text-blue" style="text-align: left">Participate in City of Boston’s
+                                    Climate Resilience Planning
+                                </h5>
+                            </button>
+                        </h2>
+                    </div>
+
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <p><a href="http://www.bostonplans.org/planning/planning-initiatives/plan-east-boston"
+                                    class="w3-text-blue">Plan East Boston</a></p>
+                            <p> Plan East Boston is a community-driven, neighborhood-wide planning initiative in East
+                                Boston. Guided by Imagine Boston 2030 and several city-wide strategic plans, Plan East
+                                Boston will produce a framework to predictably shape the future of East Boston, and
+                                identify opportunities to preserve, enhance and grow. The effort is organized by the
+                                Boston Planning & Development Agency (BPDA) in partnership with several City agencies,
+                                and relies on the participation of the East Boston community to be both meaningful and
+                                sustainable.
+                                Plan: East Boston will
+                                Update the East Boston Master Plan (2000),
+                                Recommend updates to Article 53;
+                                Produce urban design guidelines; and
+                                Recommend immediate-to long-term improvement projects for the neighborhood’s
+                                transportation network.<br><br>
+                                <b>Stay Connected:</b> Sign up for their emails on the City’s <a
+                                    href="http://www.bostonplans.org/planning/planning-initiatives/plan-east-boston"
+                                    class="w3-text-blue">website</a></p>
+
+                            <p><a href="https://www.boston.gov/departments/environment/climate-ready-boston"
+                                    class="w3-text-blue">Climate Ready East Boston</a></p>
+
+                            <p><a href="https://www.boston.gov/departments/environment/climate-ready-east-boston"
+                                    class="w3-text-blue">The City of Boston has a climate preparedness plan focused
+                                    completely on East Boston</a>. In
+                                partnership with the community, the City of Boston identified short- and long-term
+                                solutions to protect the neighborhood from the impacts of sea level rise due to climate
+                                change.<br>
+
+                                <a href="https://www.boston.gov/departments/environment/climate-ready-boston"
+                                    class="w3-text-blue">Climate Ready Boston</a> is an ongoing initiative. The City
+                                works with the community and other partners to advocate for and advance a vision of a
+                                resilient, thriving, and innovative Boston.</p>
+                            <p>
+                                <a=href="" class="w3-text-blue">Greenovate Boston</a>
+                            </p>
+                            Greenovate works to empower Bostonians to carry out climate action in line with City’s
+                            Climate Action Plan in their own neighborhoods and communities. Through this program,
+                            the City hosts a Climate Leaders training, clean-ups around the city, and generally
+                            keeps residents up to date on how the city is acting on climate and what they can do to
+                            be involved. <a href="https://www.boston.gov/departments/environment/greenovate-boston"
+                                class="w3-text-blue">Learn more and take climate action today!</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <h5 class="w3-text-blue" style="text-align: left">Get involved with local organizations
+                                </h5>
+                            </button>
+                        </h2>
+                    </div>
+
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <p><a href="https://www.harborkeepers.org/" class="w3-text-blue">Harborkeepers</a></p>
+                            <p>The Harborkeepers was founded in 2016 as a non-profit grassroots-based organization with
+                                a mission to build equitable and sustainable coastal community resiliency and foster
+                                environmental stewardship. These lofty goals require intentional engagement with all
+                                stakeholders through meaningful trust-based, relationship-building in community urban
+                                spaces where people can thrive equitably. As local residents who live, work and play in
+                                the community that we are based in, we leverage everyday meaningful engagement
+                                opportunities with environmental programming while building critical partnerships and
+                                generating collective advocacy to build coastal resiliency. For us, building social
+                                resiliency is just as important as building physical infrastructure that will protect
+                                our environment and communities from increasing climate and environmental impacts.</p>
+
+                            <b>Get Involved:</b> Sign up to receive their eNewsletters <a
+                                href="https://www.harborkeepers.org/" class="w3-text-blue">here</a>.<br><br>
+
+                            <p><a href="http://www.greenrootschelsea.org/" class="w3-text-blue">GreenRoots</a></p>
+                            <p>
+                                GreenRoots works to achieve environmental justice and greater quality of life through
+                                collective action, unity, education and youth leadership across neighborhoods and
+                                communities.<br><br>
+
+                                GreenRoots is a community-based organization dedicated to improving and enhancing the
+                                urban environment and public health in Chelsea and the surrounding communities. We do so
+                                through deep community engagement and empowerment, youth leadership and implementation
+                                of innovative projects and campaigns.<br><br>
+
+                                <b>Get Involved:</b> Sign up to receive GreenRoote emails and phone calls <a
+                                    href="http://www.greenrootschelsea.org/" class="w3-text-blue">here</a>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-row-padding w3-light-gray w3-padding-64 w3-container">
+        <div class="w3-content">
+            <h1 class="w3-text-blue">Want to be involved?</h1>
+            <p>Share your email and we will only share it with the organizations mentioned above.</p>
+            <div class="row">
+                <div class="col-12">
+                    <input type="text" id="org_email" name="org_email" placeholder="example: email@abc.com">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-row-padding w3-padding-64 w3-container">
+        <div class="w3-content">
+            <h1 class="w3-text-blue">Want to be involved with creating the art piece?</h1>
+            <p>We would love to have you join us to help make the art piece and install the piece. Please
+                share your email and we will email you about the upcoming art creation.
+            </p>
+            <div class="row">
+                <div class="col-12">
+                    <input type="text" id="art_email" name="art_email" placeholder="example: email@abc.com">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-container w3-padding-16 w3-center w3-wide" id="submit" style="background-color: #3F77BC">
+        <p class="w3-xlarge">
+            <button class="w3-button w3-round w3-hover-white" id="sub_button"
+                style="padding:8px 60px; background-color: #3F77BC">Submit</button>
+        </p>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-16 w3-center w3-opacity">
+        <div class="w3-xlarge w3-padding-32">
+            <a href="https://www.facebook.com/rising.emotions.399"><i
+                    class="fa fa-facebook-official w3-hover-opacity"></i></a>
+            <a href="https://www.instagram.com/risingemotionseb"><i class="fa fa-instagram w3-hover-opacity"></i></a>
+            <a href="https://twitter.com/RisingEmotions"><i class="fa fa-twitter w3-hover-opacity"></i></a>
+        </div>
+    </footer>
+
+</body>
+
+</html>
+
+<!-- <script src="data_log.js"></script> -->
+<script src="index.js"></script>

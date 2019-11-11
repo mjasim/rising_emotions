@@ -1,0 +1,22 @@
+[
+	{	
+		"emotion": "Optimistic",
+		"count": 0
+	},
+	{	
+		"emotion": "Concerned",
+		"count": 0
+	},
+	{	
+		"emotion": "Sad",
+		"count": 1
+	},
+	{	
+		"emotion": "Angry",
+		"count": 0
+	},
+	{	
+		"emotion": "Other",
+		"count": 0
+	}
+]
